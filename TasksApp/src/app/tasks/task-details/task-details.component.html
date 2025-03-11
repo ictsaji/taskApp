@@ -1,0 +1,93 @@
+<!-- <p>task-details works!</p> -->
+<!-- 
+<h4> Add New Task </h4>
+
+<form [formGroup]="taskForm" (ngSubmit)="onUpdate()">
+    <div>
+      <label for="taskTitle">Task Description</label>
+      <input id="taskTitle" formControlName="todo" />
+    </div>
+    <div>
+        <label for="userId"> User Id</label>
+        <input id="userId" formControlName="userId" />
+      </div>
+    <div>
+        <label for="task-status"> Task Status</label>
+        <select id="task-status" formControlName="completed">
+          <option value="true">Yes</option>
+          <option value="false">No</option>          
+        </select>
+    </div>
+    <div>
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
+    <div>
+      <label for="dueDate">Due Date</label>
+      <input id="dueDate" type="date" formControlName="dueDate" />
+    </div>
+    <button type="submit" [disabled]="taskForm.invalid">Add Task</button>
+  </form> -->
+
+
+  <h4 class="mb-4 text-center text-primary">Edit Task</h4>
+
+<form [formGroup]="taskForm" (ngSubmit)="onUpdate()" class="p-4 shadow-sm rounded bg-light">
+  <div class="mb-3">
+    <label for="taskTitle" class="form-label">Task Description</label>
+    <input id="taskTitle" formControlName="todo" class="form-control" placeholder="Enter task description" />
+    <div *ngIf="taskForm.get('todo')?.invalid && taskForm.get('todo')?.touched" class="text-danger">
+      Task Description is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="userId" class="form-label">User Id</label>
+    <input id="userId" formControlName="userId" class="form-control" placeholder="Enter User ID" disabled />
+    <div *ngIf="taskForm.get('userId')?.invalid && taskForm.get('userId')?.touched" class="text-danger">
+      User ID is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="task-status" class="form-label">Task Status</label>
+    <select id="task-status" formControlName="completed" class="form-select">
+      <option value="true">Completed</option>
+      <option value="false">Not Completed</option>
+    </select>
+    <div *ngIf="taskForm.get('completed')?.invalid && taskForm.get('completed')?.touched" class="text-danger">
+      Task Status is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="priority" class="form-label">Priority</label>
+    <select id="priority" formControlName="priority" class="form-select">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+    <!-- <div *ngIf="taskForm.get('priority')?.invalid && taskForm.get('priority')?.touched" class="text-danger">
+      Priority is required.
+    </div> -->
+  </div>
+
+  <div class="mb-3">
+    <label for="dueDate" class="form-label">Due Date</label>
+    <input id="dueDate" type="date" formControlName="dueDate" class="form-control" />
+    <!-- <div *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched" class="text-danger">
+      Due Date is required.
+    </div> -->
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Add Task</button>
+  </div>
+
+  
+</form>
+

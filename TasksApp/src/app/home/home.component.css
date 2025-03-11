@@ -1,0 +1,27 @@
+
+
+.text-heading {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 50px;   
+    background-color: bisque;   
+    color: black;     
+}
+
+
+.link-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(234, 234, 17);
+    
+}
+
+.task-item {
+    width: auto;
+    /* margin-right: 50px; */
+    text-decoration: none;
+
+}

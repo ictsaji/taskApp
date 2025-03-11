@@ -1,0 +1,66 @@
+<!-- <p>task-list works!</p> -->
+
+<div  class="card">
+  <div  class="card-header">
+    Task List
+   </div>
+   <div class="card-body">
+    <div  class="table-responsive">
+      <table  class="table">
+        <thead>
+          <tr>
+            <th>Task-Id </th>
+            <th>Task-Description </th>
+            <th>Task-Status</th>
+            <th>Task-Priority</th>
+            <th>Due-Date</th>
+            <th>Edit-Task</th>
+
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks; trackBy: trackByTaskId"  [appHighlightPriority]="task.priority">
+            <td> {{task.id}} </td>
+            <td> {{task.todo}} </td>
+            <td> {{task.completed}} </td>
+            <td> {{task.priority? task.priority : 'low'}}</td>
+            <td> {{ (task.dueDate? task.dueDate : '2025-03-20' ) | taskDate}}</td>
+            <td>
+              <button class="btn btn-success" [routerLink]="['/tasks/task', task.id]">
+                Edit-Task
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+
+</div>
+
+<button [routerLink]="['/tasks/add-task']" 
+           class="btn btn-primary d-inline-block  floating-btn">
+           Add New Task
+</button>
+
+
+
+
+
+
+<!-- <div class="task-list">
+    <h1>Task List</h1>
+    <div 
+        *ngFor="let task of tasks; let i = index" 
+         class="task-item">
+        
+        <h2>{{ task.id }}</h2>
+        <p>{{ task.todo }}</p>
+        <h4> {{ task.completed}}</h4>
+      
+      <button [routerLink]="['/tasks/task', task.id]">View Task</button>
+    </div>
+    <button [routerLink]="['/tasks/add-task']" class="btn btn-primary">Add New Task</button>
+</div>  -->
+
